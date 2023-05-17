@@ -1,0 +1,41 @@
+<?php
+include "con_db.php";
+
+if (isset($_POST['register'])) {
+    if(strlen($_POST['stiba']) >= 1 && strlen($_POST['caja']) >= 1 && 
+    strlen($_POST['rack']) >= 1 && strlen($_POST['columna']) >=1 && 
+    strlen($_POST['nivel']) >=1 && strlen($_POST['sku']) >=1 && 
+    strlen($_POST['descripcion']) >=1 && strlen($_POST['cantidad']) >=1 ){
+        $stiba=trim($_POST['stiba']);
+        $caja=trim($_POST['caja']);
+        $rack=trim($_POST['rack']);
+        $columna=trim($_POST['columna']);
+        $nivel=trim($_POST['nivel']);
+        $sku=trim($_POST['sku']);
+        $descripcion=trim($_POST['descripcion']);
+        $cantidad=trim($_POST['cantidad']);
+        $fechareg=date("d/m/y");
+        $consulta = "INSERT INTO datos(stiba, caja, rack, sku, descripcion, cantidad, columna, fecha_ingreso, fecha_salida, total) VALUES ('$stiba','$caja','$rack','$$sku','$descripcion','$cantidad','$columna','$fechareg','$fechareg','$cantidad')";
+        //$consulta = "INSERT INTO datos( nombre, email, fecha_registro) VALUES ('$name','$email','$fechareg')";
+        $resultado = mysqli_query($conex, $consulta);
+        if($resultado){
+            ?>
+            <h3 class="ok"> te haz inscrito correctamente </h3>
+            <?php
+        } else {
+            ?>
+            <h3 class="bad"> un error </h3>
+            <?php
+        } 
+    } else {
+            ?>
+            <h3 class="bad"> complete los cargos</h3>
+            <?php
+        }
+    }
+
+
+
+
+
+?>
