@@ -24,41 +24,16 @@
 <div class="container d-flex justify-content-center" style="height: 100px; margin: 40px 0 0 100px ">
 <table >
     <tr style="border: 10px; border-color: black; background-color: #0e026b">
-        <th>Sku</th>
-        <th>Estiba</th>
+        <th>Stiba</th>
         <th>Caja</th>
         <th>Rack</th>
         <th>Columna</th>
+        <th>Sku</th>
         <th>Nivel</th>
         <th>Descripcion</th>
         <th>Total</th>
-        <th>Fecha ingreso</th>
+        <th>Fecha salida</th>
     </tr>
-
-    <?php
-    $sql="SELECT * FROM datos";
-    $resul=mysqli_query($conex,$sql);
-    while($mostrar=mysqli_fetch_array($resul)){
-
-    
-    ?>
-
-    <tr >
-        <td style="color:black;"><?php echo $mostrar['sku']?></td>
-        <td style="color: black;"><?php echo $mostrar['stiba']?></td>
-        <td style="color:black;"><?php echo $mostrar['caja']?></td>
-        <td style="color:black;"><?php echo $mostrar['rack']?></td>
-        <td style="color:black;"><?php echo $mostrar['columna']?></td>
-        <td style="color:black;"><?php echo $mostrar['nivel']?></td>
-        <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
-        <td style="color:black;"><?php echo $mostrar['total']?></td>
-        <td style="color:black;" ><?php echo$mostrar['fecha_ingreso']?></td>
-    </tr>
-    <?php
-}
-
-
-?>
 </table>
 </div>
     

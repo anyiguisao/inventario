@@ -1,0 +1,33 @@
+body{
+    background-color: black;
+}
+
+
+table {
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(26, 25, 25, 0.867);
+}
+
+th,
+td {
+	padding: 15px;
+	background-color: rgba(123, 116, 254, 0.2);
+	color: white;
+}
+
+th {
+	text-align: left;
+}
+
+thead, th{
+		background-color: #0e026b;
+}
+
+tr :hover{
+			background-color: rgba(5, 17, 251, 0.3);
+}
+td{
+    position: relative;
+    
+}
