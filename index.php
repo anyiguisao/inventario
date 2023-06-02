@@ -41,7 +41,7 @@ include("nav.php");
     <input type="text" class="form-control" name="cantidad" placeholder=" cantidad" >
     </div>
     <div class="col" style="width:60%; margin: 6px 0 30px 120px" >
-    <input type="submit" class="form-control" name="register" >  <?php
+    <input type="submit" class="form-control btn btn-info" name="register"  >  <?php
     include("registro.php");
     
     ?>

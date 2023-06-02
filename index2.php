@@ -33,6 +33,10 @@
         <th>Descripcion</th>
         <th>Total</th>
         <th>Fecha ingreso</th>
+        <th><br></th>   
+        <th>Entrada</th>
+        <th >Cantidad</th>
+        <th>Salida</th>
     </tr>
 
     <?php
@@ -53,6 +57,13 @@
         <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
         <td style="color:black;"><?php echo $mostrar['total']?></td>
         <td style="color:black;" ><?php echo$mostrar['fecha_ingreso']?></td>
+        <td>
+            <div class="botones" >
+                <td><button class="btn" style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
+                <td><input type="number" style="width:45px"></td>
+                <td><button class="btn" style="background-color: rgba(5, 17, 251, 0.3)" value="">-</button></td>
+            </div> 
+        </td> 
     </tr>
     <?php
 }

@@ -117,7 +117,7 @@ if(isset($_POST['buscar'])){
                   <input type="text" name="input" class="form-control" placeholer="Buscar">
               </div>
               <div class="col-md-3" >
-                  <input type="submit" name="buscar" class="btn btn-info" value="buscar" >
+                  <input type="submit" name="buscar" class="btn btn-info"  value="buscar" >
               </div>   
           </div>
         </form>
