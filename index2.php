@@ -58,16 +58,72 @@
         <td style="color:black;"><?php echo $mostrar['total']?></td>
         <td style="color:black;" ><?php echo$mostrar['fecha_ingreso']?></td>
         <td>
+            <form action="" method="post" >
             <div class="botones" >
-                <td><button class="btn" style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
-                <td><input type="number" style="width:45px"></td>
-                <td><button class="btn" style="background-color: rgba(5, 17, 251, 0.3)" value="">-</button></td>
+                <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
+                <td><input type="number" name="input" style="width:45px"></td>
+                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="">-</button></td>
             </div> 
+            </form>
         </td> 
     </tr>
     <?php
 }
 
+
+?>
+<?php
+
+if (isset($_POST['sumar'])) {
+$input=$_POST['input'];
+
+if(!empty($input)) { 
+    $sql = "UPDATE datos SET total = total + $input WHERE total>=0  or total <=0";
+    $resultado = mysqli_query($conex, $sql);
+   /* if($resultado){
+        ?>
+        <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
+         ¡Registro exitoso!
+        </div>
+        <?php
+    } else {
+        ?>
+        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+            ¡Error!
+        </div>
+        <?php
+    }*/
+}
+}
+
+if (isset($_POST['restar'])) {
+    $input=$_POST['input'];
+    
+    if(!empty($input)) {
+        $sql = "UPDATE datos SET total = total - $input WHERE total";
+        $resultado = mysqli_query($conex, $sql);
+       /* if($resultado){
+            ?>
+            <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
+             ¡Registro exitoso!
+            </div>
+            <?php
+        } else {
+            ?>
+            <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+                ¡Error!
+            </div>
+            <?php
+        }*/
+    }
+    
+    }
+
+    if (isset($_POST['restar'])) {
+        $fechasa=date("d/m/y");
+        $consulta = "INSERT INTO datos(fecha_salida,) VALUES ('$fechareg')";
+    
+    }
 
 ?>
 </table>
