@@ -62,7 +62,7 @@
             <div class="botones" >
                 <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
                 <td><input type="number" name="input" style="width:45px"></td>
-                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="">-</button></td>
+                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="<?php echo date("Y-n-j"); ?>">-</button></td>
             </div> 
             </form>
         </td> 
@@ -119,13 +119,44 @@ if (isset($_POST['restar'])) {
     
     }
 
-    if (isset($_POST['restar'])) {
-        $fechasa=date("d/m/y");
-        $consulta = "INSERT INTO datos(fecha_salida,) VALUES ('$fechareg')";
-    
-    }
+   
 
 ?>
+<?php
+if (isset($_POST['restar'])) {
+    $formated_DATE = date('d/m/y');
+    $input=$_POST['input'];
+    $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
+    $resultado = mysqli_query($conex, $consulta);
+    echo $formated_DATE. "<br>";
+
+    
+}
+
+
+  
+  
+
+ 
+?>
+<?php
+if (isset($_POST['sumar'])) {
+    $formated_DATE = date('d/m/y');
+    $input=$_POST['input'];
+    $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
+    $resultado = mysqli_query($conex, $consulta);
+    echo $formated_DATE. "<br>";
+
+    
+}
+
+
+  
+  
+
+ 
+?>
+
 </table>
 </div>
     

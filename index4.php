@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index2.css">
+    <link rel="stylesheet" type="text/css" href="index3.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -21,21 +21,58 @@
     
 ?>
 
+
 <div class="container d-flex justify-content-center" style="height: 100px; margin: 40px 0 0 100px ">
 <table >
     <tr style="border: 10px; border-color: black; background-color: #0e026b">
-        <th>Stiba</th>
+        <th>Sku</th>
+        <th>Estiba</th>
         <th>Caja</th>
         <th>Rack</th>
         <th>Columna</th>
-        <th>Sku</th>
         <th>Nivel</th>
         <th>Descripcion</th>
-        <th>Total</th>
-        <th>Fecha entrada</th>
+        <th>Tota Entrada</th>
+        <th>Fecha Entrada</th>
+        <th><br></th>   
+        <th>Entrada</th>
+        <th >Cantidad</th>
+        <th>Salida</th>
     </tr>
-</table>
-</div>
+
+    <?php
+    $sql="SELECT * FROM datos";
+    $resul=mysqli_query($conex,$sql);
+    while($mostrar=mysqli_fetch_array($resul)){
+
+    
+    ?>
+
+    <tr >
+        <td style="color:black;"><?php echo $mostrar['sku']?></td>
+        <td style="color: black;"><?php echo $mostrar['stiba']?></td>
+        <td style="color:black;"><?php echo $mostrar['caja']?></td>
+        <td style="color:black;"><?php echo $mostrar['rack']?></td>
+        <td style="color:black;"><?php echo $mostrar['columna']?></td>
+        <td style="color:black;"><?php echo $mostrar['nivel']?></td>
+        <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
+        <td style="color:black;"><?php echo $mostrar['entrada']?></td>
+        <td style="color:black;" ><?php echo$mostrar['fecha_entrada']?></td>
+        <td>
+            <form action="" method="post" >
+            <div class="botones" >
+                <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
+                <td><input type="number" name="input" style="width:45px"></td>
+                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="<?php echo date("Y-n-j"); ?>">-</button></td>
+            </div> 
+            </form>
+        </td> 
+    </tr>
+    <?php
+}
+
+
+?>
     
 </body>
 </html>
