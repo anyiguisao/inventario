@@ -9,7 +9,7 @@ if(isset($_POST['buscar'])){
 
     if(!empty($input)) {
 
-        $query = "SELECT * FROM datos WHERE sku LIKE '%$input%' OR caja LIKE '%$input%'";
+        $query = "SELECT * FROM datos WHERE sku LIKE '%$input%' /*OR caja LIKE '%$input%'*/";
 
         $res = mysqli_query($conex, $query);
 
@@ -53,6 +53,15 @@ if(isset($_POST['buscar'])){
                     <td style='color:black;'>".$row['descripcion']."</td>
                     <td style='color:black;'>".$row['total']."</td>
                     <td style='color:black;' >".$row['fecha_ingreso']."</td>
+                    <td>
+                          <form   method='post' >
+                          <div class='botones' >
+                              <td><button class='btn'  type='submit'  name='sumar'  style='background-color:  rgba(5, 17, 251, 0.3)' >+</button></td>
+                              <td><input type='number' name='input'  style='width:45px'></td>
+                              <td><button class='btn' type='submit'  name='restar' style='background-color: rgba(5, 17, 251, 0.3)'>-</button></td>
+                          </div> 
+                          </form>
+                    </td> 
                     
                 </tr>
                 </div>
@@ -114,7 +123,7 @@ if(isset($_POST['buscar'])){
         <form action="nav.php" method="post">
           <div class="row">
               <div class="col-md-9" >
-                  <input type="text" name="input" class="form-control" placeholer="Buscar">
+                  <input type="text" name="input"  class="form-control" placeholer="Buscar">
               </div>
               <div class="col-md-3" >
                   <input type="submit" name="buscar" class="btn btn-info"  value="Buscar" >
@@ -128,7 +137,113 @@ if(isset($_POST['buscar'])){
   <?php
     echo $output;
     ?>
+<?php
 
+if (isset($_POST['sumar'])) {
+$input=$_POST['input'];
+
+if(!empty($input)) { 
+    $sql = "UPDATE datos SET total = total + $input WHERE total>=0  or total <=0";
+    $resultado = mysqli_query($conex, $sql);
+   /* if($resultado){
+        ?>
+        <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
+         ¡Registro exitoso!
+        </div>
+        <?php
+    } else {
+        ?>
+        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+            ¡Error!
+        </div>
+        <?php
+    }*/
+}
+}
+
+if (isset($_POST['restar'])) {
+    $input=$_POST['input'];
+    
+    if(!empty($input)) {
+        $sql = "UPDATE datos SET total = total - $input WHERE total";
+        $resultado = mysqli_query($conex, $sql);
+       /* if($resultado){
+            ?>
+            <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
+             ¡Registro exitoso!
+            </div>
+            <?php
+        } else {
+            ?>
+            <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+                ¡Error!
+            </div>
+            <?php
+        }*/
+    }
+    
+    }
+
+   
+
+?>
+<?php
+if (isset($_POST['restar'])) {
+    date_default_timezone_set('America/Bogota');
+    $formated_DATE = date('(d/m/y) H:i:s');
+
+    $input=$_POST['input'];
+    if($input > 0){
+
+        $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
+        $resultado = mysqli_query($conex, $consulta);
+        echo $formated_DATE. "<br>";
+       
+    }else{
+      /*  ?>
+        
+        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+            ¡Error!
+        </div>
+        <?php*/
+    }
+   
+    
+}
+
+
+  
+  
+
+ 
+?>
+<?php
+if (isset($_POST['sumar'])) {
+    date_default_timezone_set('America/Bogota');
+    $formated_DATE = date('(d/m/y) H:i:s');
+    $input=$_POST['input'];
+    if($input > 0){
+        $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
+        $resultado = mysqli_query($conex, $consulta);
+        echo $formated_DATE. "<br>";
+    }else{
+        ?>
+        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+            ¡Error!
+        </div>
+        <?php
+    }
+    
+
+    
+}
+
+
+  
+  
+
+ 
+?>
 </body>
 </html>
 </body>

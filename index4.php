@@ -33,11 +33,8 @@
         <th>Nivel</th>
         <th>Descripcion</th>
         <th>Tota Entrada</th>
-        <th>Fecha Entrada</th>
-        <th><br></th>   
-        <th>Entrada</th>
-        <th >Cantidad</th>
-        <th>Salida</th>
+        <th >Fecha Entrada</th>
+    
     </tr>
 
     <?php
@@ -58,15 +55,7 @@
         <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
         <td style="color:black;"><?php echo $mostrar['entrada']?></td>
         <td style="color:black;" ><?php echo$mostrar['fecha_entrada']?></td>
-        <td>
-            <form action="" method="post" >
-            <div class="botones" >
-                <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
-                <td><input type="number" name="input" style="width:45px"></td>
-                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="<?php echo date("Y-n-j"); ?>">-</button></td>
-            </div> 
-            </form>
-        </td> 
+         
     </tr>
     <?php
 }

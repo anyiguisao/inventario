@@ -34,10 +34,6 @@
         <th>Descripcion</th>
         <th>Tota Salidal</th>
         <th>Fecha salida</th>
-        <th><br></th>   
-        <th>Entrada</th>
-        <th >Cantidad</th>
-        <th>Salida</th>
     </tr>
 
     <?php
@@ -57,16 +53,7 @@
         <td style="color:black;"><?php echo $mostrar['nivel']?></td>
         <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
         <td style="color:black;"><?php echo $mostrar['salida']?></td>
-        <td style="color:black;" ><?php echo$mostrar['fecha_salida']?></td>
-        <td>
-            <form action="" method="post" >
-            <div class="botones" >
-                <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
-                <td><input type="number" name="input" style="width:45px"></td>
-                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="<?php echo date("Y-n-j"); ?>">-</button></td>
-            </div> 
-            </form>
-        </td> 
+        <td style="color:black;" ><?php echo$mostrar['fecha_salida']?></td> 
     </tr>
     <?php
 }

@@ -56,13 +56,13 @@
         <td style="color:black;"><?php echo $mostrar['nivel']?></td>
         <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
         <td style="color:black;"><?php echo $mostrar['total']?></td>
-        <td style="color:black;" ><?php echo$mostrar['fecha_ingreso']?></td>
+        <td style="color:black; " ><?php echo$mostrar['fecha_ingreso']?></td>
         <td>
-            <form action="" method="post" >
+            <form method="post" >
             <div class="botones" >
-                <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)" value="" >+</button></td>
+                <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)"  >+</button></td>
                 <td><input type="number" name="input" style="width:45px"></td>
-                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)" value="<?php echo date("Y-n-j"); ?>">-</button></td>
+                <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)">-</button></td>
             </div> 
             </form>
         </td> 
@@ -124,12 +124,24 @@ if (isset($_POST['restar'])) {
 ?>
 <?php
 if (isset($_POST['restar'])) {
-    $formated_DATE = date('d/m/y');
+    date_default_timezone_set('America/Bogota');
+    $formated_DATE = date('(d/m/y) H:i:s ');
     $input=$_POST['input'];
-    $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
-    $resultado = mysqli_query($conex, $consulta);
-    echo $formated_DATE. "<br>";
+    if($input > 0){
 
+        $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
+        $resultado = mysqli_query($conex, $consulta);
+        echo $formated_DATE. "<br>";
+       
+    }else{
+      /*  ?>
+        
+        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+            ¡Error!
+        </div>
+        <?php*/
+    }
+   
     
 }
 
@@ -141,11 +153,22 @@ if (isset($_POST['restar'])) {
 ?>
 <?php
 if (isset($_POST['sumar'])) {
-    $formated_DATE = date('d/m/y');
+    date_default_timezone_set('America/Bogota');
+    $formated_DATE = date('(d/m/y) H:i:s');
+
     $input=$_POST['input'];
-    $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
-    $resultado = mysqli_query($conex, $consulta);
-    echo $formated_DATE. "<br>";
+    if($input > 0){
+        $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
+        $resultado = mysqli_query($conex, $consulta);
+        echo $formated_DATE. "<br>";
+    }else{
+        ?>
+        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
+            ¡Error!
+        </div>
+        <?php
+    }
+    
 
     
 }
