@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body style="background-color: rgb(224, 224, 224);">
+<body style="background-color: rgb(224, 224, 224); ">
 
 <?php
   
@@ -20,6 +20,9 @@
     include("con_db.php");
     
 ?>
+
+
+
 
 <div class="container d-flex justify-content-center" style="height: 100px; margin: 40px 0 0 100px ">
 <table >
@@ -73,6 +76,7 @@
 
 ?>
 <?php
+/*
 
 if (isset($_POST['sumar'])) {
 $input=$_POST['input'];
@@ -92,7 +96,7 @@ if(!empty($input)) {
             ¡Error!
         </div>
         <?php
-    }*/
+    }
 }
 }
 
@@ -114,7 +118,7 @@ if (isset($_POST['restar'])) {
                 ¡Error!
             </div>
             <?php
-        }*/
+        }
     }
     
     }
@@ -139,7 +143,7 @@ if (isset($_POST['restar'])) {
         <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
             ¡Error!
         </div>
-        <?php*/
+        <?php
     }
    
     
@@ -162,7 +166,7 @@ if (isset($_POST['sumar'])) {
         $resultado = mysqli_query($conex, $consulta);
         echo $formated_DATE. "<br>";
     }else{
-        ?>
+        /*?>
         <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
             ¡Error!
         </div>
@@ -177,11 +181,11 @@ if (isset($_POST['sumar'])) {
   
   
 
- 
+ */
 ?>
 
 </table>
+
 </div>
-    
 </body>
 </html>

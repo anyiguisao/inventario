@@ -15,7 +15,7 @@ if (isset($_POST['register'])) {
         $descripcion=trim($_POST['descripcion']);
         $cantidad=trim($_POST['cantidad']);
         $fechareg=date("d/m/y");
-        $consulta = "INSERT INTO datos(stiba, caja, rack, sku, descripcion, cantidad, columna,nivel, fecha_ingreso, fecha_salida, total) VALUES ('$stiba','$caja','$rack','$sku','$descripcion','$cantidad','$columna','$nivel','$fechareg','$cantidad')";
+        $consulta = "INSERT INTO datos(stiba, caja, rack, sku, descripcion, cantidad, columna,nivel, fecha_ingreso, total) VALUES ('$stiba','$caja','$rack','$sku','$descripcion','$cantidad','$columna','$nivel','$fechareg','$cantidad')";
         //$consulta = "INSERT INTO datos( nombre, email, fecha_registro) VALUES ('$name','$email','$fechareg')";
         $resultado = mysqli_query($conex, $consulta);
         if($resultado){

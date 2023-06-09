@@ -33,7 +33,7 @@
         <th>Nivel</th>
         <th>Descripcion</th>
         <th>Tota Salidal</th>
-        <th>Fecha salida</th>
+        <th>Fecha y hora de salida</th>
     </tr>
 
     <?php

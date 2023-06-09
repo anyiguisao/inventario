@@ -143,7 +143,7 @@ if (isset($_POST['sumar'])) {
 $input=$_POST['input'];
 
 if(!empty($input)) { 
-    $sql = "UPDATE datos SET total = total + $input WHERE total>=0  or total <=0";
+    $sql = "UPDATE datos SET total = total + $input WHERE total>=0  or total <=0 ";
     $resultado = mysqli_query($conex, $sql);
    /* if($resultado){
         ?>
@@ -197,7 +197,6 @@ if (isset($_POST['restar'])) {
 
         $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
         $resultado = mysqli_query($conex, $consulta);
-        echo $formated_DATE. "<br>";
        
     }else{
       /*  ?>
@@ -225,13 +224,12 @@ if (isset($_POST['sumar'])) {
     if($input > 0){
         $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
         $resultado = mysqli_query($conex, $consulta);
-        echo $formated_DATE. "<br>";
     }else{
-        ?>
+       /* ?>
         <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
             ¡Error!
         </div>
-        <?php
+        <?php*/
     }
     
 

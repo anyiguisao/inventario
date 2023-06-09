@@ -33,7 +33,7 @@
         <th>Nivel</th>
         <th>Descripcion</th>
         <th>Tota Entrada</th>
-        <th >Fecha Entrada</th>
+        <th >Fecha y hora de entrada</th>
     
     </tr>
 
