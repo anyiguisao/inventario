@@ -1,3 +1,4 @@
+
 <?php
 $conex = mysqli_connect("localhost", "root", "","inventario");
 
@@ -81,7 +82,7 @@ if(isset($_POST['buscar'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="index2.css">
+    <link rel="stylesheet" type="text/css" href="nav.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
 </head>
@@ -99,16 +100,16 @@ if(isset($_POST['buscar'])){
               
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-light" aria-current="page" href="index.php">Ingresar</a>
+                <a class="nav-link active text-light" aria-current="page" href="formulario.php">Ingresar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  text-light" href="index2.php">Listado</a>
+                <a class="nav-link  text-light" href="listado.php">Listado</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  text-light" href="index4.php">Entrada</a>
+                <a class="nav-link  text-light" href="entrada.php">Entrada</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  text-light"  href="index3.php">Salida</a>
+                <a class="nav-link  text-light"  href="salida.php">Salida</a>
               </li>
             </ul>
               <!--<form action="index2.php" method="get" class="form_search">
@@ -123,7 +124,7 @@ if(isset($_POST['buscar'])){
         <form action="nav.php" method="post">
           <div class="row">
               <div class="col-md-9" >
-                  <input type="text" name="input"  class="form-control" placeholer="Buscar">
+                  <input type="text" name="input"   class="form-control" placeholer="Buscar">
               </div>
               <div class="col-md-3" >
                   <input type="submit" name="buscar" class="btn btn-info"  value="Buscar" >
@@ -140,84 +141,54 @@ if(isset($_POST['buscar'])){
 <?php
 
 if (isset($_POST['sumar'])) {
-$input=$_POST['input'];
-
-if(!empty($input)) { 
-    $sql = "UPDATE datos SET total = total + $input WHERE total>=0  or total <=0 ";
-    $resultado = mysqli_query($conex, $sql);
-   /* if($resultado){
-        ?>
-        <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
-         ¡Registro exitoso!
-        </div>
-        <?php
-    } else {
-        ?>
-        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-            ¡Error!
-        </div>
-        <?php
-    }*/
-}
+    date_default_timezone_set('America/Bogota');
+    $formated_DATE = date('(d/m/y) H:i:s');
+    $input= $_POST['input'];
+    $id= $_POST['id'];
+    $suma= '+';
+    if(!empty($input)){
+        $tabla = "INSERT INTO entrada_salida(id,signo,cantidad,fecha) VALUES ('$id','$suma','$input','$formated_DATE')";
+        $sql = "UPDATE datos SET total = total + $input WHERE id = '$id'";
+        //$datos="SELECT sku FROM datos INNER JOIN entrada_salida ON datos.id = entrada_salida.id";
+        $resultado = mysqli_query($conex, $sql );
+        $resultado2 = mysqli_query($conex, $tabla); 
+        //$resultado3 = mysqli_query($conex, $datos); 
+}   
 }
 
-if (isset($_POST['restar'])) {
-    $input=$_POST['input'];
-    
-    if(!empty($input)) {
-        $sql = "UPDATE datos SET total = total - $input WHERE total";
-        $resultado = mysqli_query($conex, $sql);
-       /* if($resultado){
-            ?>
-            <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
-             ¡Registro exitoso!
-            </div>
-            <?php
-        } else {
-            ?>
-            <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-                ¡Error!
-            </div>
-            <?php
-        }*/
-    }
-    
-    }
 
-   
 
-?>
-<?php
 if (isset($_POST['restar'])) {
     date_default_timezone_set('America/Bogota');
     $formated_DATE = date('(d/m/y) H:i:s');
+    $input= $_POST['input'];
+    $id= $_POST['id'];
+    $resta= '-';
+    if(!empty($input)){
+        $tabla = "INSERT INTO entrada_salida(id,signo,cantidad,fecha) VALUES ('$id','$resta','$input','$formated_DATE')";
+        $sql = "UPDATE datos SET total = total - $input WHERE id = '$id'";
+        $resultado = mysqli_query($conex, $sql );
+        $resultado2 = mysqli_query($conex, $tabla);
+    } 
+    }
+?>
 
+
+<?php
+/*
+if (isset($_POST['restar'])) {
     $input=$_POST['input'];
     if($input > 0){
 
         $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
-        $resultado = mysqli_query($conex, $consulta);
-       
+        $resultado = mysqli_query($conex, $consulta);   
     }else{
-      /*  ?>
-        
-        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-            ¡Error!
-        </div>
-        <?php*/
-    }
-   
-    
+    }  
 }
-
-
-  
-  
-
- 
 ?>
+
 <?php
-if (isset($_POST['sumar'])) {
+/*if (isset($_POST['sumar'])) {
     date_default_timezone_set('America/Bogota');
     $formated_DATE = date('(d/m/y) H:i:s');
     $input=$_POST['input'];
@@ -225,22 +196,10 @@ if (isset($_POST['sumar'])) {
         $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
         $resultado = mysqli_query($conex, $consulta);
     }else{
-       /* ?>
-        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-            ¡Error!
-        </div>
-        <?php*/
-    }
-    
-
-    
-}
+    } 
+}*/
 
 
-  
-  
-
- 
 ?>
 </body>
 </html>
