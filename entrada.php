@@ -25,7 +25,7 @@
 <div class="container d-flex justify-content-center" style="height: 100px; margin: 40px 0 0 100px ">
 <table >
     <tr style="border: 10px; border-color: black; background-color: #0e026b">
-        <th>Sku</th>
+        <!--<th>Sku</th>-->
         <th>Signo</th>
         <th>Cantidad</th>
         <th>Fecha</th>
@@ -33,7 +33,7 @@
     </tr>
 
     <?php
-    $sql="SELECT * FROM entrada_salida";
+    $sql="SELECT *  FROM entrada_salida WHERE signo = '+'";
     $datos="SELECT sku FROM datos INNER JOIN entrada_salida ON datos.id = entrada_salida.id";
     $resul=mysqli_query($conex,$sql);
     $resul2=mysqli_query($conex,$datos);
@@ -44,7 +44,7 @@
     ?>
 
     <tr >
-        <td style="color:black;"><?php// echo $mostrar['sku']?></td>
+        <!--<td style="color:black;"><?php// echo $mostrar['sku']?></td>-->
         <td style="color:black;"><?php echo $mostrar['signo']?></td>
         <td style="color: black;"><?php echo $mostrar['cantidad']?></td>
         <td style="color:black;"><?php echo $mostrar['fecha']?></td>

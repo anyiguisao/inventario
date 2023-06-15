@@ -31,7 +31,7 @@
     </tr>
 
     <?php
-    $sql="SELECT * FROM entrada_salida";
+    $sql="SELECT *  FROM entrada_salida WHERE signo = '-'";
     $resul=mysqli_query($conex,$sql);
     while($mostrar=mysqli_fetch_array($resul)){
 

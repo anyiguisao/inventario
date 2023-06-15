@@ -40,6 +40,7 @@
         <th>Entrada</th>
         <th >Cantidad</th>
         <th>Salida</th>
+        <th>Eliminar</th>
     </tr>
 
     <?php
@@ -58,7 +59,7 @@
         <td style="color:black;"><?php echo $mostrar['columna']?></td>
         <td style="color:black;"><?php echo $mostrar['nivel']?></td>
         <td style="color:black;"><?php echo $mostrar['descripcion']?></td>
-        <td style="color:black;"><?php echo $mostrar['total']?></td>
+        <td style="color:black;"><?php echo $mostrar['cantidad']?></td>
         <td style="color:black; " ><?php echo$mostrar['fecha_ingreso']?></td>
         <td style="color:black;">
             <form method="post" >

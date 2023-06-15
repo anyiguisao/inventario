@@ -17,28 +17,28 @@ include("nav.php");
   <div style=" background-color: #ededed; width:600px; border-radius: 15px; "  >
     <h1 style=" margin: 20px 0 0 230px; font" >Registro</h1>
     <div class="col" style="width:60%; margin: 15px 0 0 120px" >
-    <input type="text" class="form-control" name="stiba" placeholder="Stiba" >
+    <input type="text" class="form-control" name="stiba" placeholder="Stiba" style="text-transform:uppercase;">
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px">
-    <input type="text" class="form-control" name="caja" placeholder=" Caja" >
+    <input type="text" class="form-control" name="caja" placeholder=" Caja" style="text-transform:uppercase;" >
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px" >
-    <input type="text" class="form-control" name="rack" placeholder="Rack" >
+    <input type="text" class="form-control" name="rack" placeholder="Rack" style="text-transform:uppercase;" >
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px" >
-    <input type="text" class="form-control" name="columna" placeholder="Columan" >
+    <input type="text" class="form-control" name="columna" placeholder="Columan" style="text-transform:uppercase;">
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px" >
-    <input type="text" class="form-control"  name="nivel" placeholder="Nivel" >
+    <input type="text" class="form-control"  name="nivel" placeholder="Nivel" style="text-transform:uppercase;">
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px" >
-    <input type="text" class="form-control"  name="sku" placeholder="Sku" >
+    <input type="text" class="form-control"  name="sku" placeholder="Sku" style="text-transform:uppercase;">
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px" >
-    <input type="text" class="form-control"  name="descripcion" placeholder="Descripcion" >
+    <input type="text" class="form-control"  name="descripcion" placeholder="Descripcion" style="text-transform:uppercase;">
     </div>
     <div class="col" style="width:60%; margin: 6px 0 0 120px" >
-    <input type="text" class="form-control" name="cantidad" placeholder=" cantidad" >
+    <input type="text" class="form-control" name="cantidad" placeholder=" cantidad" style="text-transform:uppercase;">
     </div>
     <div class="col" style="width:60%; margin: 6px 0 30px 120px" >
     <input type="submit" class="form-control btn btn-info" name="register"  >  <?php
