@@ -55,11 +55,11 @@ if(isset($_POST['buscar'])){
                     <td style='color:black;'>".$row['cantidad']."</td>
                     <td style='color:black;' >".$row['fecha_ingreso']."</td>
                     <td>
-                          <form   method='post' >
+                          <form action='listado.php'  method='post' >
                           <div class='botones' >
                               <td><button class='btn'  type='submit'  name='sumar'  style='background-color:  rgba(5, 17, 251, 0.3)' >+</button></td>
                               <td><input type='number' name='input'  style='width:45px'></td>
-                              <input type='number' hidden name='id' style='width:45px'  >
+                              <input type='number' hidden name='id' style='width:45px'value=".$row['id'].">  
                               <td><button class='btn' type='submit'  name='restar' style='background-color: rgba(5, 17, 251, 0.3)'>-</button></td>
                           </div> 
                           </form>

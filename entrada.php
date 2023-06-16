@@ -12,7 +12,7 @@
 
 <?php
   
-  include("nav.php");
+  include("nav_listado.php");
   
 ?>
   <?php
