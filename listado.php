@@ -40,7 +40,9 @@
         <th>Entrada</th>
         <th >Cantidad</th>
         <th>Salida</th>
-        <th>Eliminar</th>
+        <br><br>
+        <th>Editar</th>
+        <!--<th>Eliminar</th>-->
     </tr>
 
     <?php
@@ -62,7 +64,7 @@
         <td style="color:black;"><?php echo $mostrar['cantidad']?></td>
         <td style="color:black; " ><?php echo$mostrar['fecha_ingreso']?></td>
         <td style="color:black;">
-            <form method="post" >
+            <form method="post">
             <div class="botones" >
                 <td><button class="btn"  type="submit" name="sumar"  style="background-color:  rgba(5, 17, 251, 0.3)"  >+</button></td>
                 <td><input type="number" name="input" style="width:45px"></td>
@@ -70,131 +72,33 @@
                 <td><button class="btn" type="submit" name="restar" style="background-color: rgba(5, 17, 251, 0.3)">-</button></td>
             </div> 
             </form>
+            
         </td> 
-        <td >
-            <?php  echo "<a  href='eliminar.php?id=".$mostrar['id']."' > <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-trash3' viewBox='0 0 16 16'>
+        
+            <div class="botones" >
+                <td><button class="btn"  type="submit" name="editar"  style="background-color:  rgba(5, 17, 251, 0.3)"  >+</button></td>
+                <input type="number" hidden name="id" style="" value="<?php echo $mostrar['id']?>">
+            </div> 
+        
+        <!--<td >
+        <?php /*  echo "<a  href='eliminar.php?id=".$mostrar['id']."' > <svg xmlns='http://www.w3.org/2000/svg' width='25' height='25' fill='currentColor' class='bi bi-trash3' viewBox='0 0 16 16'>
             <path d='M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z'/>
-        </svg></a> "?>
+        </svg></a> "*/?>
         
        
-        </td>
+        </td>-->
     </tr>
     <?php
 }
 
 
 ?>
-<?php
-/*
-
-if (isset($_POST['sumar'])) {
-$input=$_POST['input'];
-
-if(!empty($input)) { 
-    $sql = "UPDATE datos SET total = total + $input WHERE total>=0  or total <=0";
-    $resultado = mysqli_query($conex, $sql);
-   /* if($resultado){
-        ?>
-        <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
-         ¡Registro exitoso!
-        </div>
-        <?php
-    } else {
-        ?>
-        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-            ¡Error!
-        </div>
-        <?php
-    }
-}
-}
-
-if (isset($_POST['restar'])) {
-    $input=$_POST['input'];
-    
-    if(!empty($input)) {
-        $sql = "UPDATE datos SET total = total - $input WHERE total";
-        $resultado = mysqli_query($conex, $sql);
-       /* if($resultado){
-            ?>
-            <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
-             ¡Registro exitoso!
-            </div>
-            <?php
-        } else {
-            ?>
-            <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-                ¡Error!
-            </div>
-            <?php
-        }
-    }
-    
-    }
-
-   
-
-?>
-<?php
-if (isset($_POST['restar'])) {
-    date_default_timezone_set('America/Bogota');
-    $formated_DATE = date('(d/m/y) H:i:s ');
-    $input=$_POST['input'];
-    if($input > 0){
-
-        $consulta = "INSERT INTO datos(fecha_salida,salida) VALUES ('$formated_DATE','$input')";
-        $resultado = mysqli_query($conex, $consulta);
-        echo $formated_DATE. "<br>";
-       
-    }else{
-      /*  ?>
-        
-        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-            ¡Error!
-        </div>
-        <?php
-    }
-   
-    
-}
-
-
-  
-  
-
- 
-?>
-<?php
-if (isset($_POST['sumar'])) {
-    date_default_timezone_set('America/Bogota');
-    $formated_DATE = date('(d/m/y) H:i:s');
-
-    $input=$_POST['input'];
-    if($input > 0){
-        $consulta = "INSERT INTO datos(fecha_entrada,entrada) VALUES ('$formated_DATE','$input')";
-        $resultado = mysqli_query($conex, $consulta);
-        echo $formated_DATE. "<br>";
-    }else{
-        /*?>
-        <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-            ¡Error!
-        </div>
-        <?php
-    }
-    
-
-    
-}
-
-
-  
-  
-
- */
-?>
 
 </table>
 
+
+
 </div>
+
 </body>
 </html>

@@ -108,7 +108,18 @@ if (isset($_POST['restar'])) {
         $sql = "UPDATE datos SET cantidad = cantidad - $input WHERE id = '$id'";
         $resultado = mysqli_query($conex, $sql );
         $resultado2 = mysqli_query($conex, $tabla);
+        
     } 
     }
+   
 
 ?>
+<script>
+    agotado(){
+    Swal.fire({
+      title: 'Stock Insuficiente ',
+      icon: 'warning',
+      showCloseButton: true,
+    })
+  }
+</script>
