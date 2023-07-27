@@ -20,23 +20,18 @@ include("nav_vacio.php")
  margin: 100px 0 0 330px; border-radius: 10px;" >
 
     <h1 style="width:50%; margin: 8px 0 0 200px"> Inicio de sesion</h1>
-    <!--<form action="login.php" method="post">
-        <input type="text" name="nombre" placeholder="Nombre" >
-        <input type="password " name="password" placeholder="Contraseña" >
-        <input type="submit" value="ingresar">
-        
-    </form>-->
+    
 
     <form action="conex.php" method="post" style="margin: 8px 0 0 0; "  >
         <div class="form-group" style="width:70%; margin: 20px 0 0 100px ">
-            <!--<label for="exampleInputEmail1">Nombre</label>-->
+           
             <input class="form-control" type="text" name="nombre" placeholder="Nombre">
         </div>
         <div class="form-group" style="width:70%; margin: 20px 0 0 100px ; ">
-            <!--<label for="exampleInputPassword1">Contraseña</label>-->
+           
             <input type="password" class="form-control" name="contraseña" placeholder="Contraseña">
         </div>
-        <button type="submit" value="ingresar"  class="form-control btn btn-info " style="width:15%; margin: 30px 0 30px 230px; ">Ingresar</button>
+        <button type="submit" value="ingresar"  class="form-control btn btn-info " style="width:15%; margin: 30px 0 30px 230px; "></a> Ingresar</button>
         <span style="margin: 0 0 0 30px ; "><a href="registroU.php" >Resgistrarse</a></span>
     </form>
 

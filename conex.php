@@ -14,13 +14,15 @@ $resultado= mysqli_query($conex,$sql);
 $filas=mysqli_fetch_array($resultado);
 
 if($filas["id_cargo"] ==1){
-
-    header("Location:admin.php");
+    
+    
+    header("Location:listado.php");
 
 
 }else
 if($filas["id_cargo"] ==2){
-    header("Location:operario.php");
+    
+    header("Location:listado.php");
 }
 
 else{

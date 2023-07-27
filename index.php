@@ -18,7 +18,7 @@
 ?>
 <body style="background-color: rgb(224, 224, 224);" >
 
-    <h1 class="d-flex flex-row justify-content-center align-items-center" style="font-family: 'PT Serif', serif; margin: 30px 0 0 0;" >Por favor inicie sesion o regístrese</h1>
+    <h1 class="d-flex flex-row justify-content-center align-items-center" style="font-family: 'PT Serif', serif; margin: 30px 0 0 0;" >Bienvenido</h1>
     <hr>
 
     <div class="d-flex flex-row justify-content-center align-items-center" >

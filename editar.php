@@ -9,28 +9,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php
+    <?php
     
     include("con_db.php")
     ?>
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
 
-                <form action="editar.php" method="post">
+    <div class="col-ms-12 col-md-12 col-lg-12">
+        <h3>Modificar datos</h3> 
+        <form action="editar.php" method="post">
             <?php
 
                 $sql = "SELECT * FROM datos WHERE id =" . $_REQUEST['id'];
@@ -66,23 +52,14 @@
                 
                 <div class="col" style="width:60%; margin: 6px 0 30px 120px" >
                     <input type="submit" class="form-control btn btn-info" name="editar"  value="guardar"  >
-                
                 </div>
                 <?php
-
                 }
-           
             ?>
-           
-
-
         </form>
-
         <?php
 
 if( isset( $_POST['editar'])){
-
-
     $sql = "UPDATE datos  SET sku ='". $_POST['sku']. "', caja ='". $_POST['caja'] ."', stiba ='". $_POST['stiba'] ."',
     rack ='". $_POST['rack'] ."', columna='". $_POST['columna'] ."', nivel ='". $_POST['nivel'] ."', descripcion ='". $_POST['descripcion'] ."',
     cantidad ='". $_POST['cantidad'] ."' WHERE id =" . $_REQUEST['id'];
@@ -90,49 +67,16 @@ if( isset( $_POST['editar'])){
     $resultado = mysqli_query($conex, $sql);
 
     if($resultado){
-        echo " Actualizado";
+        
         header("Location: listado.php");
     }else{
         echo "Error";
     }
     mysqli_close($conex);
-
 }
-
 ?>
-    
-            </div>
-        </div>
     </div>
 
-
-    <div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-</div>
-        
 </body>
 </html>
+

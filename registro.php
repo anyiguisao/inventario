@@ -15,10 +15,14 @@ if (isset($_POST['register'])) {
         $descripcion=trim($_POST['descripcion']);
         $cantidad=trim($_POST['cantidad']);
         $fechareg=date("d/m/y");
-        $consulta = "INSERT INTO datos(stiba, caja, rack, sku, descripcion, cantidad, columna,nivel, fecha_ingreso, total) VALUES ('$stiba','$caja','$rack','$sku','$descripcion','$cantidad','$columna','$nivel','$fechareg','$cantidad')";
+
+        
+        $consulta = "INSERT INTO datos(stiba, caja, rack, sku, descripcion, cantidad, columna,nivel, fecha_ingreso) VALUES ('$stiba','$caja','$rack','$sku','$descripcion','$cantidad','$columna','$nivel','$fechareg')";
         //$consulta = "INSERT INTO datos( nombre, email, fecha_registro) VALUES ('$name','$email','$fechareg')";
         $resultado = mysqli_query($conex, $consulta);
-        if($resultado){
+
+        
+        if($resultado > 0 ){
             ?>
             <div class="alert alert-success d-flex justify-content-center" style="width:70px; margin: 0 0 0  300px " role="alert">
              ¡Registro exitoso!
@@ -27,7 +31,7 @@ if (isset($_POST['register'])) {
         } else {
             ?>
             <div class="alert alert-danger"  style="width:70px; margin: 0 0 0  300px " role="alert">
-                ¡Error!
+                ¡Ya existe el registro!
             </div>
             <?php
         } 
